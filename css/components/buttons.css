@@ -1,0 +1,27 @@
+/* Button styles */
+.cta-button, .enroll-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: #4338ca;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cta-button {
+    margin-top: 2rem;
+}
+
+.cta-button:hover,
+.enroll-btn:hover {
+    background: #3730a3;
+}
+
+.enroll-btn {
+    display: block;
+    width: 90%;
+    margin: 1rem auto;
+    padding: 0.8rem;
+}
