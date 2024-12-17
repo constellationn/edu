@@ -67,19 +67,30 @@
     </div>
 
     <script>
-        function checkCredentials() {
-            const usernameInput = document.getElementById('username').value;
-            const passwordInput = document.getElementById('password').value;
-            const errorText = document.getElementById('error');
-            const correctUsername = 'userunknown'; // Set your desired username here
-            const correctPassword = 'absoluteradiance'; // Set your desired password here
+        async function checkCredentials() {
+      const usernameInput = document.getElementById('username').value;
+      const passwordInput = document.getElementById('password').value;
+      const errorText = document.getElementById('error');
+      const correctUsername = 'userunknown';
+      const correctPassword = 'absoluteradiance';
 
-            if (usernameInput === correctUsername && passwordInput === correctPassword) {
-                window.location.href = 'aboutus.html'; // Replace with your desired link
-            } else {
-                errorText.textContent = 'Incorrect username or password. Please try again.';
-            }
+      if (usernameInput === correctUsername && passwordInput === correctPassword) {
+        try {
+          // Fetch the content of another HTML file (e.g., content.html)
+          const response = await fetch('aboutus.html');
+          const htmlContent = await response.text();
+
+          // Open about:blank and write the content of content.html into it
+          const newWindow = window.open('about:blank', '_blank');
+          newWindow.document.write(htmlContent);
+          newWindow.document.close();
+        } catch (error) {
+          console.error('Error loading content:', error);
         }
+      } else {
+        errorText.textContent = 'Incorrect username or password. Please try again.';
+      }
+    }
     </script>
 </body>
 </html>
